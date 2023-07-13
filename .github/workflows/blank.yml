@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  issues:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: When create an issue
+        run: echo created an issue!
+
+      
