@@ -2,15 +2,15 @@ name: CI
 
 on:
   issues:
-    branches: [ "main" ]
-  workflow_dispatch:
+    types: opened
 
 jobs:
-  build:
+  createissue:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: When create an issue
-        run: echo created an issue!
+      - name: Show all issue information
+        env:
+          ISSUE_CONTEXT: ${{ toJson(github.event.issue) }}
+        run: echo "$ISSUE_CONTEXT"
 
       
